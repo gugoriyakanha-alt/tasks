@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intermediate Web Development</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Contact Form</h1>
+    </header>
+
+    <section class="container">
+        <form id="contactForm">
+            <label>Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <label>Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label>Message:</label>
+            <textarea id="message" placeholder="Your message..." required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <section class="gallery-section">
+        <h2>Image Gallery</h2>
+        <div id="gallery" class="gallery"></div>
+        <input type="text" id="imageURL" placeholder="Enter image URL">
+        <button id="addImage">Add Image</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
