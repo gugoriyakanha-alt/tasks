@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            min-height: 100vh;
+        }
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center mb-10">
+            <h1 class="text-4xl font-extrabold text-gray-900">Our Products</h1>
+            <p class="mt-2 text-lg text-gray-600">Explore our curated collection of high-quality items.</p>
+        </header>
+
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        </div>
+
+    </div>
+
+    <script>
+        const products = [
+            {
+                name: "Elegant Smartwatch",
+                price: "$199.99",
+                description: "A sleek and stylish smartwatch with a long-lasting battery and health-tracking features.",
+                image: "https://imgs.search.brave.com/HFerNqYNuxrLUC1nuSgZTeazaZwgh1h1WFkCdQLMJ0k/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4t/bWFnZW50by5teWty/b25vei5jb20vbWVk/aWEvY2F0YWxvZy9w/cm9kdWN0L2NhY2hl/LzkvdGh1bWJuYWls/Lzc2MHgvZTRkOTJl/NmFjZWFhZDUxN2U3/YjVjMTJlMGRjMDY1/ODcvcy9tL3NtYXJ0/d2F0Y2gtcm91bmQt/Y29sb3ItdG91Y2hz/Y3JlZW4tbWlsYW5l/c2Utd3Jpc3QtemVy/b3VuZDItaHItZWxp/dGUtc2xpdmVyLnBu/Zw"
+            },
+            {
+                name: "Wireless Noise-Cancelling Headphones",
+                price: "$249.00",
+                description: "Immersive sound and superior comfort with active noise cancellation for a perfect listening experience.",
+                image: "https://imgs.search.brave.com/GbuRiw5Df3HDc6vlbYnP3-WhYF2oncJDSXOawOoY-Bc/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9iZmFz/c2V0LmNvc3Rjby1z/dGF0aWMuY29tL1U0/NDdJSDM1L2FzLzM5/cnRyNnBobTI2bjc1/andqZ240ajhwLzQw/MDAzNzIzNzctODQ3/X18xP2F1dG89d2Vi/cCZmb3JtYXQ9anBn/JndpZHRoPTM1MCZo/ZWlnaHQ9MzUwJmZp/dD1ib3VuZHMmY2Fu/dmFzPTM1MCwzNTA"
+            },
+            {
+                name: "Portable Power Bank",
+                price: "$45.50",
+                description: "Compact design with a high-capacity battery to keep your devices charged on the go.",
+                image: "https://imgs.search.brave.com/p0eXM0d_vtO3vqjIgaxMEhksCl8xzrIBtG8rYCuIFHQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NzFCdjc3RVpjWkwu/anBn"
+            },
+            {
+                name: "Ergonomic Office Chair",
+                price: "$320.00",
+                description: "Designed for maximum comfort and support during long work sessions, with adjustable lumbar support.",
+                image: "https://imgs.search.brave.com/ZIgKYciKuuCBJJX7zPWeEawYvA-mfqlhk8Zw2U7OxbI/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/Z3JlZW5zb3VsLm9u/bGluZS9jZG4vc2hv/cC9maWxlcy96b2Rp/YWNfd2hpdGVfZ3Jl/eV9saWZlc3R5bGUy/X2MxMmMyMGRiLTI5/ZDgtNGU2MC1hZGM5/LTMxNjU4NGVjNDc4/ZS5qcGc_dj0xNzU2/MTQ1MzI1JndpZHRo/PTUwMA"
+            },
+            {
+                name: "Ultra HD Webcam",
+                price: "$89.99",
+                description: "Crystal-clear video quality with auto-focus and a wide-angle lens, perfect for video calls.",
+                image: "https://imgs.search.brave.com/T2Mxeydw441y__bYlS_OiQu0F5jLuqDDLn4cL8HxCdo/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NjFwODdhZW5vQkwu/anBn"
+            },
+            {
+                name: "Compact Coffee Maker",
+                price: "$75.00",
+                description: "Brew your favorite coffee in minutes with this stylish and easy-to-use machine.",
+                image: "https://imgs.search.brave.com/UhrS6M08FN57RKCRavhD4kz2BuuV12quY3YjKL3TVmM/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NzFyOHBYaGEyNEwu/anBn"
+            },
+            {
+                name: "Fitness Tracker",
+                price: "$120.00",
+                description: "Track your steps, calories, heart rate, and sleep patterns with this durable fitness band.",
+                image: "https://imgs.search.brave.com/nSn6HnVOEBe_tOlrxcMmIiCRJErBVa4FvNnz3-cK3U0/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4u/dGhld2lyZWN1dHRl/ci5jb20vd3AtY29u/dGVudC9tZWRpYS8y/MDIzLzExL2ZpdG5l/c3MtdHJhY2tlci0y/MDQ4cHgtNTM0OC5q/cGc_YXV0bz13ZWJw/JnF1YWxpdHk9NzUm/d2lkdGg9MTAyNA"
+            },
+            {
+                name: "Digital Art Tablet",
+                price: "$599.00",
+                description: "Unleash your creativity with a high-resolution tablet and pressure-sensitive stylus.",
+                image: "https://imgs.search.brave.com/N6MrbceUbPZA0N8YwUSvQByCPvZe4UB8nWOcHj02kgU/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NDFlTUhEUlRmWUwu/anBn"
+            }
+        ];
+
+        const productGrid = document.getElementById('product-grid');
+
+        // Function to create a product card element
+        const createProductCard = (product) => {
+            const card = document.createElement('div');
+            card.className = 'product-card bg-white rounded-xl overflow-hidden shadow-md flex flex-col items-center p-6 text-center';
+            card.innerHTML = `
+                <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h3 class="text-xl font-bold mb-2">${product.name}</h3>
+                <p class="text-2xl font-semibold text-blue-600 mb-2">${product.price}</p>
+                <p class="text-sm text-gray-500 mb-4">${product.description}</p>
+                <button class="add-to-cart-btn mt-auto bg-blue-600 text-white font-semibold py-2 px-6 rounded-full hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    Add to Cart
+                </button>
+            `;
+            return card;
+        };
+
+        // Populate the product grid with cards
+        products.forEach(product => {
+            const card = createProductCard(product);
+            const button = card.querySelector('.add-to-cart-btn');
+
+            button.addEventListener('click', () => {
+                button.textContent = 'Added!';
+                button.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+                button.classList.add('bg-green-500');
+                setTimeout(() => {
+                    button.textContent = 'Add to Cart';
+                    button.classList.remove('bg-green-500');
+                    button.classList.add('bg-blue-600', 'hover:bg-blue-700');
+                }, 1500);
+            });
+            productGrid.appendChild(card);
+        });
+    </script>
+</body>
+</html>
