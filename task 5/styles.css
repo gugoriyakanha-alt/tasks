@@ -1,0 +1,94 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #2f2e2b;
+    margin: 0;
+    color: #e3d9ca;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #4e4b47;
+    color: #f5f0e6;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.7);
+}
+.logo {
+    font-weight: bold;
+    font-size: 1.3em;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+main {
+    max-width: 1100px;
+    margin: 32px auto;
+    padding: 0 10px;
+}
+#productList, #cartList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+.product-card, .cart-card {
+    background: #48443e;
+    border-radius: 10px;
+    box-shadow: 0 4px 18px rgb(0 0 0 / 0.6);
+    padding: 18px 16px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.product-card img, .cart-card img {
+    max-height: 180px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 6px;
+    margin-bottom: 14px;
+    box-shadow: 0 0 8px #362e26;
+    background: #2f2e2b;
+}
+.product-title, .cart-title {
+    font-size: 1.05em;
+    font-weight: 600;
+    color: #a58962;
+    margin-bottom: 7px;
+    text-align: center;
+}
+.product-desc, .cart-desc {
+    font-size: 0.98em;
+    color: #bbb1a8;
+    margin-bottom: 12px;
+    text-align: center;
+}
+.product-price, .cart-price {
+    font-weight: bold;
+    color: #d1c7b7;
+    margin-bottom: 10px;
+    font-size: 1.09em;
+}
+.add-btn, .remove-btn {
+    background: #a58962;
+    color: #2f2e2b;
+    border: none;
+    border-radius: 4px;
+    padding: 7px 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-bottom: 6px;
+}
+.add-btn:hover, .remove-btn:hover {
+    background: #7a6b49;
+    color: #f5f0e6;
+}
+@media (max-width: 600px) {
+    main {
+        padding: 0 4px;
+    }
+    #productList, #cartList {
+        grid-template-columns: 1fr;
+    }
+    nav {
+        font-size: 1em;
+    }
+}
